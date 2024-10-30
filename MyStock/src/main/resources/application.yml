@@ -1,0 +1,32 @@
+server:
+  servlet:
+    context-path: /api
+  port: 8080
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mystock
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect # JPA 데이터베이스 플랫폼 설정
+    hibernate:
+      ddl-auto: update # Hibernate DDL 자동 설정
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL8Dialect # Hibernate 방언 설정
+
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+
+jwt:
+  access_expiration_time: 360000000 # 1시간 액세스 토큰 만료 시간 설정
+  refresh_expiration_time: 604800016 # 1주일 리프레시 토큰 만료 시간 설정
+  secret: N2ZmY2M0Njc0NzY5YTg0ZGVkY2U0NzEzZTJjM2EzNTA4MTM1MTU0NzA1NjRlZjE4ZDJhZjMwM2U3ODk2ZjQ4YjY0  # JWT 시크릿 키 설정 (환경 변수 사용)
